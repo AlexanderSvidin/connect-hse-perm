@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Коннект ВШЭ Пермь — всё о поступлении от тех, кто уже там</title>
+<meta name="description" content="Дружелюбный гид по МПБЭ ВШЭ Пермь: чек-лист поступления, карта курсов, жизнь в общежитии, клубы и лайфхаки от студентов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hse: #0055CC;
+    --hse-light: #EBF2FF;
+    --hse-dark: #003A99;
+    --accent: #FF6B35;
+    --accent-light: #FFF0EB;
+    --green: #1A7A4A;
+    --green-light: #E6F4ED;
+    --text: #1A1A1A;
+    --text-muted: #6B7280;
+    --border: #E5E7EB;
+    --bg: #F9FAFB;
+    --white: #FFFFFF;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--hse); text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 4px; list-style: none;
+  }
+  .nav-links a {
+    display: block; padding: 6px 12px;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted); text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover { color: var(--hse); background: var(--hse-light); }
+  .nav-cta {
+    background: var(--hse); color: white !important;
+    padding: 8px 16px !important;
+    border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--hse-dark) !important; color: white !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; transition: all 0.2s; }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+  section:nth-child(even) { background: var(--bg); }
+
+  /* HERO */
+  #hero {
+    background: linear-gradient(135deg, #0055CC 0%, #003A99 60%, #001F66 100%);
+    padding: 100px 0 80px; color: white; overflow: hidden; position: relative;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: rgba(255,107,53,0.15);
+    border-radius: 50%;
+  }
+  #hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 20%;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 13px; font-weight: 500; margin-bottom: 24px;
+  }
+  .hero-tag::before { content: '✦'; color: #FFD166; }
+  #hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 20px; max-width: 720px;
+  }
+  #hero h1 em { color: #FFD166; font-style: normal; }
+  #hero p {
+    font-size: 18px; opacity: 0.85;
+    max-width: 560px; margin-bottom: 40px;
+    line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: white;
+    padding: 14px 28px; border-radius: var(--radius-sm);
+    font-size: 16px; font-weight: 600; text-decoration: none;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .btn-primary:hover { background: #e55a25; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white; padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 16px; font-weight: 500; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+  .hero-stats {
+    display: flex; gap: 40px; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 32px;
+  }
+  .hero-stat-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 28px; font-weight: 700; color: #FFD166;
+  }
+  .hero-stat-label { font-size: 13px; opacity: 0.7; margin-top: 2px; }
+
+  /* SECTION HEADINGS */
+  .section-tag {
+    display: inline-block;
+    background: var(--hse-light); color: var(--hse);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 12px; text-transform: uppercase;
+  }
+  h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700; line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--text-muted);
+    margin-bottom: 40px; max-width: 600px;
+  }
+
+  /* CHECKLIST */
+  .checklist-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .checklist-step {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--hse); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700;
+  }
+  .step-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .step-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+  .step-content a { color: var(--hse); text-decoration: none; }
+  .step-content a:hover { text-decoration: underline; }
+  .step-badge {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 10px; margin-bottom: 6px;
+  }
+  .badge-warn { background: #FEF3C7; color: #92400E; }
+  .badge-ok { background: var(--green-light); color: var(--green); }
+
+  /* COURSES */
+  .courses-grid {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .course-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px;
+    border-left: 4px solid transparent;
+    transition: transform 0.15s;
+  }
+  .course-card:hover { transform: translateY(-2px); }
+  .course-card.easy { border-left-color: #22C55E; }
+  .course-card.medium { border-left-color: #F59E0B; }
+  .course-card.hard { border-left-color: #EF4444; }
+  .course-module { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; }
+  .course-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .course-difficulty { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .diff-dots { display: flex; gap: 3px; }
+  .diff-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+  .diff-dot.filled.easy { background: #22C55E; }
+  .diff-dot.filled.medium { background: #F59E0B; }
+  .diff-dot.filled.hard { background: #EF4444; }
+  .diff-label { font-size: 12px; color: var(--text-muted); }
+  .course-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* QA */
+  .qa-list { display: flex; flex-direction: column; gap: 8px; max-width: 800px; }
+  .qa-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    background: var(--white);
+  }
+  .qa-question {
+    width: 100%; text-align: left;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; cursor: pointer;
+    background: none; border: none; font-family: 'Inter', sans-serif;
+    font-size: 15px; font-weight: 600; color: var(--text);
+    gap: 12px;
+  }
+  .qa-question:hover { background: var(--bg); }
+  .qa-icon {
+    flex-shrink: 0; width: 20px; height: 20px;
+    background: var(--hse-light); color: var(--hse);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; transition: transform 0.2s;
+  }
+  .qa-item.open .qa-icon { transform: rotate(45deg); }
+  .qa-answer {
+    display: none; padding: 0 20px 18px;
+    font-size: 14px; color: var(--text-muted); line-height: 1.7;
+    border-top: 1px solid var(--border);
+  }
+  .qa-item.open .qa-answer { display: block; padding-top: 16px; }
+  .qa-answer a { color: var(--hse); text-decoration: none; }
+  .qa-answer a:hover { text-decoration: underline; }
+  .qa-answer ul { padding-left: 18px; margin-top: 8px; }
+  .qa-answer li { margin-bottom: 4px; }
+
+  /* DORM */
+  .dorm-grid {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .dorm-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+  }
+  .dorm-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dorm-icon { font-size: 20px; }
+  .dorm-card ul { list-style: none; }
+  .dorm-card li { font-size: 14px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+  .dorm-card li:last-child { border-bottom: none; }
+  .dorm-card li::before { content: '—'; color: var(--hse); flex-shrink: 0; }
+  .dorm-contact { font-size: 13px; }
+  .dorm-contact a { color: var(--hse); text-decoration: none; }
+
+  /* CLUBS */
+  .clubs-grid {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .club-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .club-card:hover { border-color: var(--hse); transform: translateY(-2px); }
+  .club-emoji { font-size: 24px; margin-bottom: 10px; }
+  .club-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .club-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+  .club-links { display: flex; gap: 8px; }
+  .club-link {
+    font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 6px;
+    text-decoration: none; transition: opacity 0.15s;
+  }
+  .club-link:hover { opacity: 0.8; }
+  .club-link.vk { background: #E8F0FE; color: #1B5BE5; }
+  .club-link.tg { background: #E3F2FD; color: #0088CC; }
+
+  /* LIFEHACKS */
+  .lh-tabs {
+    display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;
+  }
+  .lh-tab {
+    padding: 8px 18px;
+    border: 1px solid var(--border); border-radius: 20px;
+    background: none; cursor: pointer; font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 500; color: var(--text-muted);
+    transition: all 0.15s;
+  }
+  .lh-tab.active {
+    background: var(--hse); color: white; border-color: var(--hse);
+  }
+  .lh-panel { display: none; }
+  .lh-panel.active { display: block; }
+  .lh-cards {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .lh-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .lh-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--hse); }
+  .lh-card ul { list-style: none; }
+  .lh-card li {
+    font-size: 14px; color: var(--text-muted);
+    padding: 7px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 8px; line-height: 1.5;
+  }
+  .lh-card li:last-child { border-bottom: none; }
+  .lh-card li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  /* ABBR TABLE */
+  .abbr-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .abbr-table th { text-align: left; font-weight: 600; padding: 10px 12px; background: var(--bg); border-bottom: 2px solid var(--border); }
+  .abbr-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .abbr-table tr:last-child td { border-bottom: none; }
+  .abbr-code { font-family: monospace; font-weight: 700; color: var(--hse); }
+
+  /* QUOTES */
+  .quotes-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-bottom: 48px;
+  }
+  .quote-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+    border-left: 4px solid var(--accent);
+  }
+  .quote-text { font-size: 15px; line-height: 1.6; font-style: italic; color: var(--text); margin-bottom: 12px; }
+  .quote-text::before { content: '«'; }
+  .quote-text::after { content: '»'; }
+  .quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+  /* CONTACT FORM */
+  .form-wrap {
+    max-width: 560px;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+  }
+  .form-group { margin-bottom: 20px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  input, textarea, select {
+    width: 100%; padding: 12px 16px;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text);
+    background: var(--white); transition: border-color 0.15s;
+    outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--hse); }
+  textarea { resize: vertical; min-height: 120px; }
+  .btn-submit {
+    width: 100%; background: var(--hse); color: white;
+    border: none; padding: 14px; border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .btn-submit:hover { background: var(--hse-dark); }
+  .form-note { font-size: 13px; color: var(--text-muted); margin-top: 12px; text-align: center; }
+
+  /* TELEGRAM CTA */
+  .tg-cta-block {
+    background: linear-gradient(135deg, var(--hse) 0%, #003A99 100%);
+    border-radius: 16px; padding: 48px 40px;
+    text-align: center; color: white; margin: 0 auto; max-width: 700px;
+  }
+  .tg-cta-block h2 { font-size: 28px; margin-bottom: 12px; color: white; }
+  .tg-cta-block p { opacity: 0.85; margin-bottom: 28px; font-size: 16px; }
+  .tg-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--hse);
+    padding: 14px 32px; border-radius: var(--radius-sm);
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    transition: transform 0.15s;
+  }
+  .tg-btn:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: #0F172A; color: #94A3B8;
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: white; text-decoration: none;
+  }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #94A3B8; text-decoration: none; }
+  .footer-links a:hover { color: white; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 60px; left: 0; right: 0;
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 12px; gap: 4px;
+    }
+    section { padding: 56px 0; }
+    .hero-stats { gap: 24px; }
+    .tg-cta-block { padding: 32px 24px; }
+    .form-wrap { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Коннект <span>ВШЭ</span> Пермь</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#checklist">Поступление</a></li>
+      <li><a href="#courses">Курсы</a></li>
+      <li><a href="#qa">Q&A</a></li>
+      <li><a href="#dorm">Общежитие</a></li>
+      <li><a href="#clubs">Клубы</a></li>
+      <li><a href="#lifehacks">Лайфхаки</a></li>
+      <li><a href="#contact" class="nav-cta">Задать вопрос</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-tag">Проект студентов МПБЭ · НИУ ВШЭ Пермь</div>
+    <h1>Всё о ВШЭ Пермь <em>от тех,<br>кто там учится</em></h1>
+    <p>Не официальный сайт с бюрократическим языком, а живой гид от первокурсников: чек-лист поступления, реальные курсы, общага и жизнь в Перми.</p>
+    <div class="hero-btns">
+      <a href="#checklist" class="btn-primary">↓ Начать поступление</a>
+      <a href="https://t.me/" class="btn-secondary">✉ Написать студенту</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">программ бакалавриата</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">МПБЭ</div>
+        <div class="hero-stat-label">международная · на английском</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24ч</div>
+        <div class="hero-stat-label">среднее время ответа студента</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="container">
+    <div class="section-tag">Поступление 2026</div>
+    <h2>Чек-лист поступления</h2>
+    <p class="section-sub">Пошаговый план — от подготовки документов до зачисления. Со ссылками на официальные источники.</p>
+
+    <div class="checklist-grid">
+      <div class="checklist-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-badge badge-warn">До ЕГЭ</div>
+          <h3>Подготовить документы</h3>
+          <p>Паспорт, аттестат, СНИЛС, медсправка 086-У, сертификат ЕГЭ. Для иностранных граждан — дополнительный пакет документов.</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">Июнь 2026</div>
+          <h3>Зарегистрироваться на ЕГЭ</h3>
+          <p>Для МПБЭ нужны: математика (профиль), русский язык, иностранный язык (обязательно). Следи за расписанием на сайте ФИПИ.</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">С 20 июня</div>
+          <h3>Подать заявление на поступление</h3>
+          <p>Через <a href="https://perm.hse.ru" target="_blank">perm.hse.ru</a> или Госуслуги. Можно подать сразу в 5 вузов по 5 направлениям. ВШЭ принимает документы онлайн.</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-badge badge-warn">Важно!</div>
+          <h3>Проверить олимпиады и БВИ</h3>
+          <p>Победители и призёры олимпиад из перечня Минобра могут поступить без вступительных испытаний (БВИ). Проверь свои права на <a href="https://olimpiada.ru" target="_blank">olimpiada.ru</a></p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">Июль–август</div>
+          <h3>Отслеживать конкурсные списки</h3>
+          <p>Списки публикуются на сайте ВШЭ. Следи за своей позицией. Минимальный балл прошлых лет — ориентир, но не гарантия.</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">До 3 августа</div>
+          <h3>Подать оригинал аттестата</h3>
+          <p>Это подтверждает твоё согласие на зачисление. Подать можно лично или через Госуслуги. Не пропусти дедлайн — это критично!</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">Август</div>
+          <h3>Подать заявку на общежитие</h3>
+          <p>До 31 августа — электронная заявка на <a href="https://perm.hse.ru/dormitory/" target="_blank">сайте общежития</a>. Заселение 27–31 августа по адресу ул. Уинская, 34.</p>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <div class="step-badge badge-ok">1 сентября</div>
+          <h3>Приехать на линейку 🎉</h3>
+          <p>Первое мероприятие для первокурсников. Познакомишься с ПАПами (кураторами), группой и узнаешь всё о первой неделе учёбы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
+    <div class="section-tag">Учёба</div>
+    <h2>Карта курсов МПБЭ</h2>
+    <p class="section-sub">Реальная сложность предметов от первокурсников, а не официальный учебный план.</p>
+
+    <div class="courses-grid">
+      <!-- Модуль 1 -->
+      <div class="course-card easy">
+        <div class="course-module">1 модуль</div>
+        <div class="course-name">БЖД</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">1/10 — просто</span>
+        </div>
+        <div class="course-desc">Первая неделя — только БЖД. Знакомство с корпусами, правилами безопасности, научным руководителем. Одно задание в своём темпе.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">1 модуль</div>
+        <div class="course-name">ОРГ — Основы российской государственности</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">1/5 — просто</span>
+        </div>
+        <div class="course-desc">Много групповых презентаций. Хорошо сближает с одногруппниками в самом начале учёбы — неожиданный плюс.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">1 модуль</div>
+        <div class="course-name">Цифровая грамотность</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">2/5 — нормально</span>
+        </div>
+        <div class="course-desc">Excel, PowerPoint, Word, сайты, инфографика. Максимальная оценка — 8 баллов. Независимый экзамен в 3 модуле, хотя курс только в 1-м.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">1–2 модули</div>
+        <div class="course-name">Физическая культура</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">1/5 — просто</span>
+        </div>
+        <div class="course-desc">Сам выбираешь секцию: теннис, плавание, баскетбол и др. Автомат — при максимуме посещений. Важно: 1 день = 1 посещение.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">1–2 модули</div>
+        <div class="course-name">Психология</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">2/5 — нормально</span>
+        </div>
+        <div class="course-desc">Лекции онлайн, очные семинары с презентациями. Совет: отвечай с первого же семинара — это сильно влияет на итоговую оценку.</div>
+      </div>
+
+      <div class="course-card medium">
+        <div class="course-module">1–2 модули</div>
+        <div class="course-name">Линейная алгебра</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — требует усилий</span>
+        </div>
+        <div class="course-desc">Координаты, векторы, матрицы. Это математика для работы с пространством и данными. Подтяни тригонометрию и геометрию до начала.</div>
+      </div>
+
+      <div class="course-card medium">
+        <div class="course-module">1–2 модули</div>
+        <div class="course-name">Математический анализ 1</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — требует усилий</span>
+        </div>
+        <div class="course-desc">Производные, пределы, интегралы. Нужно знать производные и тригонометрию со школы. Матан про изменение — анализ курсов валют, траекторий.</div>
+      </div>
+
+      <div class="course-card hard">
+        <div class="course-module">1–2 модули</div>
+        <div class="course-name">Микроэкономика</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">4/5 — сложно</span>
+        </div>
+        <div class="course-desc">Спрос/предложение, рыночные структуры, поведение фирм. Взгляд на экономику «снизу». Знание школьного курса экономики сильно помогает.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">2 модуль</div>
+        <div class="course-name">Проектный семинар «Социальное проектирование»</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — интересно</span>
+        </div>
+        <div class="course-desc">Реальные задачи от НКО. Придёт настоящий заказчик с реальной социальной проблемой — вы разработаете план решения. Очень практично.</div>
+      </div>
+
+      <div class="course-card easy">
+        <div class="course-module">3–4 модули</div>
+        <div class="course-name">Правовая грамотность</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled easy"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">1/5 — просто</span>
+        </div>
+        <div class="course-desc">Онлайн-курс от юристов ВШЭ для неюристов. Видеолекции + семинары. Совет: решай тесты в первые дни после открытия в Smart LMS.</div>
+      </div>
+
+      <div class="course-card medium">
+        <div class="course-module">3–4 модули</div>
+        <div class="course-name">Математический анализ 2</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — требует усилий</span>
+        </div>
+        <div class="course-desc">Интегралы, ряды, двойные интегралы, полярные координаты. Нужна хорошая база после Матана-1.</div>
+      </div>
+
+      <div class="course-card hard">
+        <div class="course-module">3–4 модули</div>
+        <div class="course-name">Макроэкономика</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">4/5 — сложно</span>
+        </div>
+        <div class="course-desc">ВВП, инфляция, безработица, экономический рост. Взгляд на экономику «сверху». Сильнее Микро — нужна хорошая база.</div>
+      </div>
+
+      <div class="course-card medium">
+        <div class="course-module">3 модуль</div>
+        <div class="course-name">Общий менеджмент</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — интересно</span>
+        </div>
+        <div class="course-desc">Как устроено управление в компаниях. Бизнес-кейсы в мини-группах на семинарах. Много практики и живых обсуждений.</div>
+      </div>
+
+      <div class="course-card medium">
+        <div class="course-module">3 модуль</div>
+        <div class="course-name">Бизнес-статистика</div>
+        <div class="course-difficulty">
+          <div class="diff-dots">
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot filled medium"></div>
+            <div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+          <span class="diff-label">3/5 — требует усилий</span>
+        </div>
+        <div class="course-desc">Excel на серьёзном уровне: сводные таблицы, графики, прогнозы, финансовые показатели. Хорошее знание базовых формул Excel — обязательно.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A -->
+<section id="qa">
+  <div class="container">
+    <div class="section-tag">Вопрос — ответ</div>
+    <h2>Частые вопросы</h2>
+    <p class="section-sub">То, что не найдёшь на официальном сайте — или найдёшь, но не поймёшь.</p>
+
+    <div class="qa-list">
+      <div class="qa-item">
+        <button class="qa-question">
+          Как выглядит главный корпус?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          Основной корпус — бульвар Гагарина, 37 (корпус №2). Здесь проходит 90% занятий МПБЭ. Посмотри виртуальный тур: <a href="https://rutube.ru/video/fcf9a7c117605acc64803fa476540d9f/" target="_blank">rutube.ru/video/fcf9a7c117605acc64803fa476540d9f</a> — реально помогает не потеряться в первый день.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Как ставятся оценки? Это как в школе?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          Нет, совсем не как в школе. У каждого предмета своя формула, где каждая активность весит свой процент. Например, по Этике бизнеса: 28% — работа на семинарах + 24% — ТЗ1 + 28% — ТЗ2 + 20% — экзамен.<br><br>
+          Оценки по 10-балльной системе. Важно: семинарская оценка считается как среднее по всем семинарам. Если получил 6, 7, 7, 8 — итог 7. Формулу преподаватель объявляет в начале курса.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Что такое мобильность и как попасть?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          Мобильность — это учёба в другом кампусе ВШЭ (Москва, Санкт-Петербург, Нижний Новгород) от 1 модуля до года. Официальный источник: <a href="https://perm.hse.ru/mobilnost/about" target="_blank">perm.hse.ru/mobilnost/about</a><br><br>
+          <ul>
+            <li>Кто может: студенты со 2 курса, без долгов</li>
+            <li>Стоимость: бесплатно (для бюджетников)</li>
+            <li>Документы: заявление в учебный офис за 1,5 месяца до отъезда, паспорт, студбилет, справка 086/у</li>
+            <li>Важно: нужно вернуться в Пермь за 6 месяцев до защиты диплома</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Где найти информацию о стажировках?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          Все вакансии и стажировки публикуются в Telegram-канале проектного офиса ВШЭ Пермь: <a href="https://t.me/hsecareerperm" target="_blank">@hsecareerperm</a>. Подпишись сразу — обновления приходят регулярно.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Есть ли психологическая поддержка в ВШЭ?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          Да, в ВШЭ Пермь есть штатный психолог. Принимает в 1 корпусе (ул. Студенческая, 38), кабинет 412. Проводит как индивидуальные, так и групповые встречи. Бесплатно.<br><br>
+          Подробнее: <a href="https://perm.hse.ru/upr/stal/psychologist" target="_blank">perm.hse.ru/upr/stal/psychologist</a>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          День открытых дверей — как это работает?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          ДОД бакалавриата ВШЭ Пермь проходит в гибридном формате — очно в корпусе №2 (бульвар Гагарина, 37) и онлайн для зарегистрированных участников.<br><br>
+          На мероприятии рассказывают о правилах приёма, всех программах, можно лично пообщаться с академическими руководителями. В 2026 году открыт набор на 8 программ, включая МПБЭ.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Топ кафе для учёбы в Перми
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          <ul>
+            <li><strong>Monkey Grinder</strong> — самая популярная сеть у студентов ВШЭ. Лучшие точки: Эспланада, Аймол (фудкорт), у Гипер Ленты (бул. Гагарина 67)</li>
+            <li><strong>4u</strong> — уютное место с чизкейками и эклерами, бул. Гагарина 67</li>
+            <li><strong>Дринкит</strong> — хороший кофе и выпечка, ул. Белинского 6Б</li>
+            <li><strong>Stars Coffee</strong> — стильно и уютно, ул. Петропавловская 57</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question">
+          Где недорого поесть рядом с Вышкой?
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          <ul>
+            <li><strong>Блинная Сковородка</strong> — огромные блины, наедаешься с одного. ул. Крупской 41</li>
+            <li><strong>Ранние Пташки</strong> — завтраки весь день. ул. Ленина 60</li>
+            <li><strong>Поке рамен</strong> — азиатское бистро, Комсомольский просп. 7</li>
+            <li><strong>Торопомодоро</strong> — итальянская кухня в историческом здании. ул. Ленина 44</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DORM -->
+<section id="dorm">
+  <div class="container">
+    <div class="section-tag">Жильё</div>
+    <h2>Общежитие</h2>
+    <p class="section-sub">Всё что нужно знать до приезда — адреса, заселение, что взять с собой.</p>
+
+    <div class="dorm-grid">
+      <div class="dorm-card">
+        <h3><span class="dorm-icon">📍</span>Адреса</h3>
+        <ul>
+          <li>Общежитие 1: ул. Уинская, 34 · <a href="tel:+73422543702">+7 342 254-37-02</a></li>
+          <li>Общежитие 2: бул. Гагарина, 37А · <a href="tel:+73422545621">+7 342 254-56-21</a></li>
+          <li>Общежитие 3: бул. Гагарина, 41 · <a href="tel:+73422009548">+7 342 200-95-48</a></li>
+          <li>Первокурсников заселяют в общежитие 3 (бул. Гагарина 41)</li>
+          <li>Карта: <a href="https://perm.hse.ru/dormitory/" target="_blank">perm.hse.ru/dormitory</a></li>
+        </ul>
+      </div>
+
+      <div class="dorm-card">
+        <h3><span class="dorm-icon">📋</span>Как заселиться</h3>
+        <ul>
+          <li>Подать электронную заявку на сайте общежития <strong>до 31 августа</strong></li>
+          <li>Приехать 27, 30 или 31 августа · ул. Уинская 34, ауд. 114 (10:00–18:00)</li>
+          <li>Взять с собой: паспорт, справка 086-У (оригинал+копия), сертификат прививок</li>
+          <li>До 18 лет — нужен родитель или нотариальное согласие</li>
+          <li>Оплатить проживание через Сбербанк или банкомат</li>
+        </ul>
+      </div>
+
+      <div class="dorm-card">
+        <h3><span class="dorm-icon">🏠</span>Что есть в комнате</h3>
+        <ul>
+          <li>Шкаф, кровать, стол, стул, тумбочка, полка на каждого</li>
+          <li>Матрас, подушка, одеяло, покрывало — бесплатно</li>
+          <li>Блочный тип: 4 комнаты + душ + туалет + кухня</li>
+          <li>На кухне: плита, холодильник, микроволновка, чайник, вытяжка</li>
+          <li>На этаже: стиральная машина, сушилки, гладильные доски</li>
+          <li>В доме: спортзал, камера хранения, коворкинг</li>
+        </ul>
+      </div>
+
+      <div class="dorm-card">
+        <h3><span class="dorm-icon">🎒</span>Что взять с собой</h3>
+        <ul>
+          <li>Быт: тазик, бытовая химия, сушилка на батарею, удлинитель с кнопкой</li>
+          <li>Кухня: сковорода, кастрюля, нож, доска, кружка, фильтр для воды</li>
+          <li>Гигиена: резиновые тапки для душа, мочалка, непромокаемая сумочка</li>
+          <li>Постельное: можно взять своё или взять казённое за 180 руб/смена</li>
+          <li>Купить большую часть: OZON, Wildberries, Лента (бул. Гагарина 65)</li>
+          <li>Видео-обзор общаги: <a href="https://www.youtube.com/watch?v=QS9j9wtfxJY" target="_blank">youtube.com/watch?v=QS9j9wtfxJY</a></li>
+        </ul>
+      </div>
+
+      <div class="dorm-card dorm-contact">
+        <h3><span class="dorm-icon">📞</span>Контакты</h3>
+        <ul>
+          <li><strong>Золин Александр Васильевич</strong> — заведующий<br><a href="tel:+73422543703">+7 342 254-37-03</a> · <a href="mailto:AVZolin@hse.ru">AVZolin@hse.ru</a></li>
+          <li><strong>Левина Татьяна Николаевна</strong> — заместитель заведующего<br><a href="mailto:tlevina2@hse.ru">tlevina2@hse.ru</a></li>
+          <li><strong>Лялина Екатерина Валерьевна</strong> — комендант (Гагарина 41)<br><a href="mailto:elyalina@hse.ru">elyalina@hse.ru</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUBS -->
+<section id="clubs">
+  <div class="container">
+    <div class="section-tag">Внеучёбка</div>
+    <h2>Клубы и организации</h2>
+    <p class="section-sub">Студенческая жизнь в ВШЭ — это не только учёба. Ярмарка организаций проходит в начале сентября.</p>
+
+    <div class="clubs-grid">
+      <div class="club-card">
+        <div class="club-emoji">🎭</div>
+        <div class="club-name">СтудАктив НИУ ВШЭ Пермь</div>
+        <div class="club-desc">Организуют самые крупные события кампуса: квесты по Перми, Зимний бал, HSE FACE и другие.</div>
+        <div class="club-links">
+          <a href="https://vk.com/hse_perm_studactive" target="_blank" class="club-link vk">ВКонтакте</a>
+          <a href="https://t.me/hse_perm_studactive" target="_blank" class="club-link tg">Telegram</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🤝</div>
+        <div class="club-name">ПАПы — кураторы первокурсников</div>
+        <div class="club-desc">Помогают с адаптацией: тимбилдинги, верёвочный курс, первая встреча с группой. Найдут тебя сами после оглашения списков.</div>
+        <div class="club-links">
+          <a href="https://vk.com/dadsknowhow" target="_blank" class="club-link vk">ВКонтакте</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🏕️</div>
+        <div class="club-name">Турклуб ВШЭ Пермь</div>
+        <div class="club-desc">Походы с костром и живописными видами, встречи с ламповой атмосферой, практические занятия по туристическим навыкам.</div>
+        <div class="club-links">
+          <a href="https://vk.com/tkhse_perm" target="_blank" class="club-link vk">ВКонтакте</a>
+          <a href="https://t.me/+7IVQwzbv1SY5ZmUy" target="_blank" class="club-link tg">Telegram</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🎮</div>
+        <div class="club-name">КиберБерлога — киберспорт</div>
+        <div class="club-desc">Составы по DOTA 2, CS2. Развивают не только киберспорт, но и другие сферы киберполя.</div>
+        <div class="club-links">
+          <a href="https://vk.com/hse_ursus" target="_blank" class="club-link vk">ВКонтакте</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">💚</div>
+        <div class="club-name">Волонтёрский центр</div>
+        <div class="club-desc">Помощь фондам («Дедморозим»), приютам для животных, социальные инициативы студентов и преподавателей.</div>
+        <div class="club-links">
+          <a href="https://vk.com/vcperm" target="_blank" class="club-link vk">ВКонтакте</a>
+          <a href="https://t.me/+XVIP9MlxzvA0MDQy" target="_blank" class="club-link tg">Telegram</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🌿</div>
+        <div class="club-name">Зелёная Вышка</div>
+        <div class="club-desc">Экологическое сообщество. Делают Вышку «зелёным» университетом вместе с администрацией и студентами.</div>
+        <div class="club-links">
+          <a href="https://vk.com/hsegreenperm" target="_blank" class="club-link vk">ВКонтакте</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🎪</div>
+        <div class="club-name">Театральная студия АРТэриЯ</div>
+        <div class="club-desc">Постановки, репетиции, атмосфера живого театра — для тех, кто хочет быть на сцене или за кулисами.</div>
+        <div class="club-links">
+          <a href="https://vk.com/arteriahse" target="_blank" class="club-link vk">ВКонтакте</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🎯</div>
+        <div class="club-name">СК «Вышка» — страйкбол</div>
+        <div class="club-desc">Сборная команда НИУ ВШЭ Пермь по страйкболу. Если хочешь адреналина вне учёбы — сюда.</div>
+        <div class="club-links">
+          <a href="https://vk.com/hseairsoft" target="_blank" class="club-link vk">ВКонтакте</a>
+        </div>
+      </div>
+
+      <div class="club-card">
+        <div class="club-emoji">🏛️</div>
+        <div class="club-name">Центр молодёжной политики</div>
+        <div class="club-desc">Помогают создавать студенческие клубы, организовывать мероприятия и мастер-классы. Точка входа во всю внеучёбку.</div>
+        <div class="club-links">
+          <a href="https://vk.com/studcentre_hseperm" target="_blank" class="club-link vk">ВКонтакте</a>
+          <a href="https://t.me/studcentreperm" target="_blank" class="club-link tg">Telegram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFEHACKS -->
+<section id="lifehacks">
+  <div class="container">
+    <div class="section-tag">Лайфхаки</div>
+    <h2>Советы от студентов</h2>
+    <p class="section-sub">Всё, что хотелось бы знать до поступления — но узнаёшь только в процессе.</p>
+
+    <div class="lh-tabs">
+      <button class="lh-tab active" onclick="showTab('tm')">Тайм-менеджмент</button>
+      <button class="lh-tab" onclick="showTab('school')">Что повторить до учёбы</button>
+      <button class="lh-tab" onclick="showTab('abbr')">Переводчик аббревиатур</button>
+      <button class="lh-tab" onclick="showTab('quotes')">Советы первокурсников</button>
+    </div>
+
+    <div class="lh-panel active" id="tab-tm">
+      <div class="lh-cards">
+        <div class="lh-card">
+          <h3>4 основы тайм-менеджмента</h3>
+          <ul>
+            <li>В первую очередь — самые важные и срочные дела. Не откладывай ключевое.</li>
+            <li>Отслеживай, на что тратишь время. Ищи, где можно сэкономить.</li>
+            <li>Начинай с малого, чтобы победить прокрастинацию. Главное — просто начать.</li>
+            <li>Перерывы каждые 50–90 минут — не лень, а необходимость.</li>
+          </ul>
+        </div>
+        <div class="lh-card">
+          <h3>Специфика ВШЭ</h3>
+          <ul>
+            <li>Smart LMS — система для сдачи заданий. Открой в первую неделю и разберись.</li>
+            <li>Тесты решай в первые дни после открытия, не в последний момент.</li>
+            <li>Отвечай на семинарах с первого занятия — это реально влияет на итоговую оценку.</li>
+            <li>Дедлайны жёсткие. Прозевал — сложно наверстать.</li>
+            <li>Групповые проекты — почти в каждом предмете. Выбирай партнёров умно.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="lh-panel" id="tab-school">
+      <div class="lh-cards">
+        <div class="lh-card">
+          <h3>Цифровая грамотность</h3>
+          <ul>
+            <li>Базовые формулы Excel: СУММ, МИН, МАКС, СРЗНАЧ, ВПР</li>
+            <li>Форматирование текста в Word: шрифт, нумерация, интервалы, гиперссылки</li>
+            <li>Виды лицензий на авторские права (знай различия CC-BY, CC-NC и т.д.)</li>
+          </ul>
+        </div>
+        <div class="lh-card">
+          <h3>Математика</h3>
+          <ul>
+            <li>Тригонометрия: основные формулы и свойства (sin, cos, tg)</li>
+            <li>Производная: формулы и правила дифференцирования</li>
+            <li>Интегралы: формулы и свойства</li>
+            <li>Геометрия: прямые, формулы параболы, гиперболы, эллипса</li>
+          </ul>
+        </div>
+        <div class="lh-card">
+          <h3>Экономика</h3>
+          <ul>
+            <li>Рынок: виды, функции, субъекты и объекты</li>
+            <li>Спрос и предложение: законы и графики</li>
+            <li>Виды конкуренции и рыночных структур</li>
+            <li>Что такое ВВП, инфляция, безработица — базовые понятия</li>
+          </ul>
+        </div>
+        <div class="lh-card">
+          <h3>Английский язык</h3>
+          <ul>
+            <li>МПБЭ — международная программа, много предметов на английском</li>
+            <li>Подтяни академический словарь: essay writing, business vocabulary</li>
+            <li>Практикуй разговорный: смотри подкасты, YouTube на английском</li>
+            <li>Telegram карьерного офиса: <a href="https://t.me/hsecareerperm" target="_blank">@hsecareerperm</a> — там часто вакансии с требованием английского</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="lh-panel" id="tab-abbr">
+      <table class="abbr-table">
+        <thead>
+          <tr>
+            <th>Аббревиатура</th>
+            <th>Расшифровка</th>
+            <th>Что это значит</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="abbr-code">МПБЭ</td><td>Международная программа по бизнесу и экономике</td><td>Твоя программа</td></tr>
+          <tr><td class="abbr-code">Smart LMS</td><td>Learning Management System</td><td>Система сдачи заданий и посещаемости</td></tr>
+          <tr><td class="abbr-code">ПАП</td><td>Помощник Адаптации Первокурсников</td><td>Куратор-старшекурсник</td></tr>
+          <tr><td class="abbr-code">ЭПП</td><td>Элективный практический проект</td><td>Практика в рамках учёбы</td></tr>
+          <tr><td class="abbr-code">НКО</td><td>Некоммерческая организация</td><td>С ними работаете в Соцпроектировании</td></tr>
+          <tr><td class="abbr-code">БВИ</td><td>Без вступительных испытаний</td><td>Поступление без ЕГЭ для победителей олимпиад</td></tr>
+          <tr><td class="abbr-code">ОРГ</td><td>Основы российской государственности</td><td>Обязательный предмет 1 модуля</td></tr>
+          <tr><td class="abbr-code">БЖД</td><td>Безопасность жизнедеятельности</td><td>Первая неделя учёбы</td></tr>
+          <tr><td class="abbr-code">ВКР</td><td>Выпускная квалификационная работа</td><td>Дипломная работа</td></tr>
+          <tr><td class="abbr-code">ДОД</td><td>День открытых дверей</td><td>Мероприятие для абитуриентов</td></tr>
+          <tr><td class="abbr-code">МБА</td><td>Master of Business Administration</td><td>Магистратура по менеджменту</td></tr>
+          <tr><td class="abbr-code">КМД</td><td>Кросс-модульная дисциплина</td><td>Предмет, который длится несколько модулей</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lh-panel" id="tab-quotes">
+      <div class="quotes-grid">
+        <div class="quote-card">
+          <div class="quote-text">Не бойся использовать все новые возможности</div>
+          <div class="quote-author">Студент МПБЭ</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">Не откладывай задания на потом. Делу время, а потехе час.</div>
+          <div class="quote-author">Студент МПБЭ</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">Займись тайм-менеджментом с первой недели — потом будет поздно.</div>
+          <div class="quote-author">Студент МПБЭ</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">Не стесняйся — все твои одногруппники тут тоже впервые.</div>
+          <div class="quote-author">Первокурсник</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">Это будет тяжело, но ты почувствуешь, что учишься чему-то настоящему.</div>
+          <div class="quote-author">Студент 1 курса</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">Забудь о школьных привычках и изучи то, что тебе реально нужно.</div>
+          <div class="quote-author">Студент МПБЭ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TELEGRAM CTA -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div class="tg-cta-block">
+      <h2>Остались вопросы?</h2>
+      <p>Напиши студенту напрямую. Отвечаем в течение 24 часов — без официоза и шаблонных ответов.</p>
+      <a href="https://t.me/" class="tg-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.93c-.13.6-.47.74-.95.46l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.85-4.38c.21-.19-.05-.29-.32-.1l-6 3.78-2.58-.81c-.56-.18-.57-.56.12-.83l10.1-3.89c.46-.18.87.11.69.97z" fill="currentColor"/></svg>
+        Написать в Telegram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">Обратная связь</div>
+    <h2>Задай вопрос</h2>
+    <p class="section-sub">Не нашёл ответ на сайте? Задай вопрос — студенты ответят лично.</p>
+
+    <div class="form-wrap">
+      <form action="https://formspree.io/f/xjglalgd" method="POST">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Как тебя зовут?" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email или Telegram</label>
+          <input type="text" id="email" name="_replyto" placeholder="Куда ответить?" required>
+        </div>
+        <div class="form-group">
+          <label for="topic">Тема вопроса</label>
+          <select id="topic" name="topic">
+            <option value="">Выбери тему</option>
+            <option>Поступление и ЕГЭ</option>
+            <option>Учёба и предметы</option>
+            <option>Общежитие</option>
+            <option>Студенческая жизнь</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Вопрос</label>
+          <textarea id="message" name="message" placeholder="Напиши свой вопрос..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Отправить вопрос →</button>
+        <p class="form-note">Ответим в течение 24 часов. Проект «Коннект ВШЭ Пермь» — студенты для абитуриентов.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">Коннект ВШЭ Пермь</a>
+    <p>Студенческий проект МПБЭ · ЭПП №12186 · 2026</p>
+    <div class="footer-links">
+      <a href="https://perm.hse.ru" target="_blank">Официальный сайт ВШЭ Пермь</a>
+      <a href="#contact">Написать нам</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.qa-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.qa-item');
+      item.classList.toggle('open');
+    });
+  });
+
+  // Lifehacks tabs
+  function showTab(id) {
+    document.querySelectorAll('.lh-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.lh-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Smooth close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
