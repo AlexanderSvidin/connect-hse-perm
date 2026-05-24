@@ -135,6 +135,7 @@
     transition: background 0.15s;
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+  .btn-secondary[aria-disabled="true"] { cursor: default; pointer-events: none; opacity: 0.75; }
   .hero-stats {
     display: flex; gap: 40px; flex-wrap: wrap;
     border-top: 1px solid rgba(255,255,255,0.15);
@@ -389,6 +390,7 @@
     cursor: pointer; transition: background 0.15s;
   }
   .btn-submit:hover { background: var(--hse-dark); }
+  .btn-submit[aria-disabled="true"] { cursor: default; pointer-events: none; opacity: 0.65; }
   .form-note { font-size: 13px; color: var(--text-muted); margin-top: 12px; text-align: center; }
 
   /* TELEGRAM CTA */
@@ -407,6 +409,7 @@
     transition: transform 0.15s;
   }
   .tg-btn:hover { transform: translateY(-2px); }
+  .tg-btn[aria-disabled="true"] { cursor: default; pointer-events: none; opacity: 0.82; }
 
   /* FOOTER */
   footer {
@@ -439,7 +442,10 @@
       padding: 12px; gap: 4px;
     }
     section { padding: 56px 0; }
+    #hero h1 em { display: block; }
     .hero-stats { gap: 24px; }
+    .hero-stats > div { flex: 1 1 130px; min-width: 0; }
+    .hero-stat-label { overflow-wrap: anywhere; }
     .tg-cta-block { padding: 32px 24px; }
     .form-wrap { padding: 24px; }
   }
@@ -471,10 +477,10 @@
   <div class="container">
     <div class="hero-tag">Проект студентов МПБЭ · НИУ ВШЭ Пермь</div>
     <h1>Всё о ВШЭ Пермь <em>от тех,<br>кто там учится</em></h1>
-    <p>Не официальный сайт с бюрократическим языком, а живой гид от первокурсников: чек-лист поступления, реальные курсы, общага и жизнь в Перми.</p>
+    <p>Гид по материалам проекта: чек-лист поступления, карта курсов, общежитие и студенческая жизнь в Перми.</p>
     <div class="hero-btns">
       <a href="#checklist" class="btn-primary">↓ Начать поступление</a>
-      <a href="https://t.me/" class="btn-secondary">✉ Написать студенту</a>
+      <span class="btn-secondary" aria-disabled="true">✉ Написать студенту</span>
     </div>
     <div class="hero-stats">
       <div>
@@ -483,11 +489,11 @@
       </div>
       <div>
         <div class="hero-stat-num">МПБЭ</div>
-        <div class="hero-stat-label">международная · на английском</div>
+        <div class="hero-stat-label">международная программа</div>
       </div>
       <div>
-        <div class="hero-stat-num">24ч</div>
-        <div class="hero-stat-label">среднее время ответа студента</div>
+        <div class="hero-stat-num">≤24ч</div>
+        <div class="hero-stat-label">цель времени ответа после запуска</div>
       </div>
     </div>
   </div>
@@ -498,7 +504,7 @@
   <div class="container">
     <div class="section-tag">Поступление 2026</div>
     <h2>Чек-лист поступления</h2>
-    <p class="section-sub">Пошаговый план — от подготовки документов до зачисления. Со ссылками на официальные источники.</p>
+    <p class="section-sub">Пошаговый план поступления по материалам проекта.</p>
 
     <div class="checklist-grid">
       <div class="checklist-step">
@@ -506,15 +512,15 @@
         <div class="step-content">
           <div class="step-badge badge-warn">До ЕГЭ</div>
           <h3>Подготовить документы</h3>
-          <p>Паспорт, аттестат, СНИЛС, медсправка 086-У, сертификат ЕГЭ. Для иностранных граждан — дополнительный пакет документов.</p>
+          <p>Для подачи нужны паспорт и документ об образовании: аттестат или диплом. Для квоты или БВИ понадобятся подтверждающие документы.</p>
         </div>
       </div>
       <div class="checklist-step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <div class="step-badge badge-ok">Июнь 2026</div>
-          <h3>Зарегистрироваться на ЕГЭ</h3>
-          <p>Для МПБЭ нужны: математика (профиль), русский язык, иностранный язык (обязательно). Следи за расписанием на сайте ФИПИ.</p>
+          <div class="step-badge badge-ok">Для МПБЭ</div>
+          <h3>Проверить вступительные испытания</h3>
+          <p>Нужны профильная математика и русский язык, а третий предмет выбирается: иностранный язык или обществознание. Минимальный балл по каждому — 50.</p>
         </div>
       </div>
       <div class="checklist-step">
@@ -522,31 +528,31 @@
         <div class="step-content">
           <div class="step-badge badge-ok">С 20 июня</div>
           <h3>Подать заявление на поступление</h3>
-          <p>Через <a href="https://perm.hse.ru" target="_blank">perm.hse.ru</a> или Госуслуги. Можно подать сразу в 5 вузов по 5 направлениям. ВШЭ принимает документы онлайн.</p>
+          <p>Подать документы можно через сервис Госуслуг, лично в Перми по адресу ул. Студенческая, 38, каб. 108, или почтой.</p>
         </div>
       </div>
       <div class="checklist-step">
         <div class="step-num">4</div>
         <div class="step-content">
           <div class="step-badge badge-warn">Важно!</div>
-          <h3>Проверить олимпиады и БВИ</h3>
-          <p>Победители и призёры олимпиад из перечня Минобра могут поступить без вступительных испытаний (БВИ). Проверь свои права на <a href="https://olimpiada.ru" target="_blank">olimpiada.ru</a></p>
+          <h3>Проверить сроки своей категории</h3>
+          <p>Для поступающих по ЕГЭ, по квоте и по БВИ действуют разные сроки. На бюджет документы принимаются до 14 июля при внутренних испытаниях или до 25 июля при ЕГЭ, БВИ и квоте.</p>
         </div>
       </div>
       <div class="checklist-step">
         <div class="step-num">5</div>
         <div class="step-content">
-          <div class="step-badge badge-ok">Июль–август</div>
+          <div class="step-badge badge-ok">С 27 июля</div>
           <h3>Отслеживать конкурсные списки</h3>
-          <p>Списки публикуются на сайте ВШЭ. Следи за своей позицией. Минимальный балл прошлых лет — ориентир, но не гарантия.</p>
+          <p>Конкурсные списки публикуются 27 июля. После публикации нужно следить за своей позицией и сроком подачи согласия на зачисление.</p>
         </div>
       </div>
       <div class="checklist-step">
         <div class="step-num">6</div>
         <div class="step-content">
-          <div class="step-badge badge-ok">До 3 августа</div>
-          <h3>Подать оригинал аттестата</h3>
-          <p>Это подтверждает твоё согласие на зачисление. Подать можно лично или через Госуслуги. Не пропусти дедлайн — это критично!</p>
+          <div class="step-badge badge-ok">1 или 5 августа</div>
+          <h3>Подать согласие на зачисление</h3>
+          <p>До 1 августа, 12:00 МСК — для квоты и БВИ. До 5 августа, 12:00 МСК — для основного конкурса по ЕГЭ.</p>
         </div>
       </div>
       <div class="checklist-step">
@@ -554,15 +560,15 @@
         <div class="step-content">
           <div class="step-badge badge-ok">Август</div>
           <h3>Подать заявку на общежитие</h3>
-          <p>До 31 августа — электронная заявка на <a href="https://perm.hse.ru/dormitory/" target="_blank">сайте общежития</a>. Заселение 27–31 августа по адресу ул. Уинская, 34.</p>
+          <p>До 31 августа — электронная заявка на <a href="https://perm.hse.ru/dormitory/" target="_blank">сайте общежития</a>. Приехать можно 27, 30 или 31 августа по адресу ул. Уинская, 34.</p>
         </div>
       </div>
       <div class="checklist-step">
         <div class="step-num">8</div>
         <div class="step-content">
           <div class="step-badge badge-ok">1 сентября</div>
-          <h3>Приехать на линейку 🎉</h3>
-          <p>Первое мероприятие для первокурсников. Познакомишься с ПАПами (кураторами), группой и узнаешь всё о первой неделе учёбы.</p>
+          <h3>Приехать на линейку</h3>
+          <p>На торжественной линейке выступают руководители программ, декан и кураторы.</p>
         </div>
       </div>
     </div>
@@ -574,7 +580,7 @@
   <div class="container">
     <div class="section-tag">Учёба</div>
     <h2>Карта курсов МПБЭ</h2>
-    <p class="section-sub">Реальная сложность предметов от первокурсников, а не официальный учебный план.</p>
+    <p class="section-sub">Предметы и оценки сложности из карты курсов проекта.</p>
 
     <div class="courses-grid">
       <!-- Модуль 1 -->
@@ -586,7 +592,7 @@
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">1/10 — просто</span>
+          <span class="diff-label">1/10</span>
         </div>
         <div class="course-desc">Первая неделя — только БЖД. Знакомство с корпусами, правилами безопасности, научным руководителем. Одно задание в своём темпе.</div>
       </div>
@@ -599,9 +605,9 @@
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">1/5 — просто</span>
+          <span class="diff-label">1/5</span>
         </div>
-        <div class="course-desc">Много групповых презентаций. Хорошо сближает с одногруппниками в самом начале учёбы — неожиданный плюс.</div>
+        <div class="course-desc">Курс включает групповые презентации и рассчитан на первый модуль.</div>
       </div>
 
       <div class="course-card easy">
@@ -613,20 +619,20 @@
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">2/5 — нормально</span>
+          <span class="diff-label">2/5</span>
         </div>
         <div class="course-desc">Excel, PowerPoint, Word, сайты, инфографика. Максимальная оценка — 8 баллов. Независимый экзамен в 3 модуле, хотя курс только в 1-м.</div>
       </div>
 
       <div class="course-card easy">
-        <div class="course-module">1–2 модули</div>
+        <div class="course-module">1–4 модули</div>
         <div class="course-name">Физическая культура</div>
         <div class="course-difficulty">
           <div class="diff-dots">
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">1/5 — просто</span>
+          <span class="diff-label">1/5</span>
         </div>
         <div class="course-desc">Сам выбираешь секцию: теннис, плавание, баскетбол и др. Автомат — при максимуме посещений. Важно: 1 день = 1 посещение.</div>
       </div>
@@ -640,9 +646,9 @@
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">2/5 — нормально</span>
+          <span class="diff-label">2/5</span>
         </div>
-        <div class="course-desc">Лекции онлайн, очные семинары с презентациями. Совет: отвечай с первого же семинара — это сильно влияет на итоговую оценку.</div>
+        <div class="course-desc">Лекции проходят онлайн, а семинары — очно и включают презентации.</div>
       </div>
 
       <div class="course-card medium">
@@ -655,7 +661,7 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — требует усилий</span>
+          <span class="diff-label">3/5</span>
         </div>
         <div class="course-desc">Координаты, векторы, матрицы. Это математика для работы с пространством и данными. Подтяни тригонометрию и геометрию до начала.</div>
       </div>
@@ -670,9 +676,9 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — требует усилий</span>
+          <span class="diff-label">3/5</span>
         </div>
-        <div class="course-desc">Производные, пределы, интегралы. Нужно знать производные и тригонометрию со школы. Матан про изменение — анализ курсов валют, траекторий.</div>
+        <div class="course-desc">Производные, пределы и интегралы. До начала курса пригодятся производные и тригонометрия из школьной программы.</div>
       </div>
 
       <div class="course-card hard">
@@ -686,12 +692,12 @@
             <div class="diff-dot filled hard"></div>
             <div class="diff-dot"></div>
           </div>
-          <span class="diff-label">4/5 — сложно</span>
+          <span class="diff-label">4/5</span>
         </div>
-        <div class="course-desc">Спрос/предложение, рыночные структуры, поведение фирм. Взгляд на экономику «снизу». Знание школьного курса экономики сильно помогает.</div>
+        <div class="course-desc">Темы курса: рынок, спрос и предложение, конкуренция, поведение фирмы и роль государства.</div>
       </div>
 
-      <div class="course-card easy">
+      <div class="course-card medium">
         <div class="course-module">2 модуль</div>
         <div class="course-name">Проектный семинар «Социальное проектирование»</div>
         <div class="course-difficulty">
@@ -701,9 +707,9 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — интересно</span>
+          <span class="diff-label">3/5</span>
         </div>
-        <div class="course-desc">Реальные задачи от НКО. Придёт настоящий заказчик с реальной социальной проблемой — вы разработаете план решения. Очень практично.</div>
+        <div class="course-desc">Студенты получают задачу от НКО и вместе с заказчиком разрабатывают решение социальной проблемы.</div>
       </div>
 
       <div class="course-card easy">
@@ -714,9 +720,9 @@
             <div class="diff-dot filled easy"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">1/5 — просто</span>
+          <span class="diff-label">1/5</span>
         </div>
-        <div class="course-desc">Онлайн-курс от юристов ВШЭ для неюристов. Видеолекции + семинары. Совет: решай тесты в первые дни после открытия в Smart LMS.</div>
+        <div class="course-desc">Онлайн-курс от юристов ВШЭ для неюристов: видеолекции и семинары.</div>
       </div>
 
       <div class="course-card medium">
@@ -729,9 +735,9 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — требует усилий</span>
+          <span class="diff-label">3/5</span>
         </div>
-        <div class="course-desc">Интегралы, ряды, двойные интегралы, полярные координаты. Нужна хорошая база после Матана-1.</div>
+        <div class="course-desc">Курс проходит в 3–4 модулях; сложность в карте курсов проекта — 3/5.</div>
       </div>
 
       <div class="course-card hard">
@@ -745,9 +751,9 @@
             <div class="diff-dot filled hard"></div>
             <div class="diff-dot"></div>
           </div>
-          <span class="diff-label">4/5 — сложно</span>
+          <span class="diff-label">4/5</span>
         </div>
-        <div class="course-desc">ВВП, инфляция, безработица, экономический рост. Взгляд на экономику «сверху». Сильнее Микро — нужна хорошая база.</div>
+        <div class="course-desc">Темы курса: ВВП, безработица, инфляция и экономический рост.</div>
       </div>
 
       <div class="course-card medium">
@@ -760,9 +766,9 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — интересно</span>
+          <span class="diff-label">3/5</span>
         </div>
-        <div class="course-desc">Как устроено управление в компаниях. Бизнес-кейсы в мини-группах на семинарах. Много практики и живых обсуждений.</div>
+        <div class="course-desc">Курс даёт базовое понимание управления в компаниях. На семинарах студенты решают бизнес-кейсы в мини-группах.</div>
       </div>
 
       <div class="course-card medium">
@@ -775,9 +781,9 @@
             <div class="diff-dot filled medium"></div>
             <div class="diff-dot"></div><div class="diff-dot"></div>
           </div>
-          <span class="diff-label">3/5 — требует усилий</span>
+          <span class="diff-label">3/5</span>
         </div>
-        <div class="course-desc">Excel на серьёзном уровне: сводные таблицы, графики, прогнозы, финансовые показатели. Хорошее знание базовых формул Excel — обязательно.</div>
+        <div class="course-desc">Для подготовки к курсу пригодится умение работать с базовыми формулами Excel.</div>
       </div>
 
       <div class="course-card easy">
@@ -810,36 +816,20 @@
         <div class="course-desc">Курс о поведении людей в коллективе: как устроена организация, как работают группы, лидерство и руководство персоналом.</div>
       </div>
 
-      <div class="course-card medium">
+      <div class="course-card">
         <div class="course-module">Факультатив</div>
         <div class="course-name">Английский язык</div>
-        <div class="course-difficulty">
-          <div class="diff-dots">
-            <div class="diff-dot filled medium"></div>
-            <div class="diff-dot filled medium"></div>
-            <div class="diff-dot filled medium"></div>
-            <div class="diff-dot"></div><div class="diff-dot"></div>
-          </div>
-          <span class="diff-label">зависит от уровня</span>
-        </div>
         <div class="course-desc">В сентябре проходит онлайн-тест для определения текущего уровня. Занятия готовят к обязательному внутреннему экзамену в конце первого года обучения.</div>
       </div>
 
-      <div class="course-card easy">
+      <div class="course-card">
         <div class="course-module">4 модуль</div>
         <div class="course-name">Проект</div>
-        <div class="course-difficulty">
-          <div class="diff-dots">
-            <div class="diff-dot filled medium"></div>
-            <div class="diff-dot filled medium"></div>
-            <div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
-          </div>
-          <span class="diff-label">зависит от проекта</span>
-        </div>
+        <div class="course-difficulty"><span class="diff-label">Сложность зависит от темы</span></div>
         <div class="course-desc">Курсовая работа в групповом формате. Можно выбрать проект на платформе SmartPro или создать инициативный групповой проект.</div>
       </div>
 
-      <div class="course-card medium">
+      <div class="course-card">
         <div class="course-module">3 модуль</div>
         <div class="course-name">Независимый экзамен по цифровой грамотности</div>
         <div class="course-desc">За месяц до экзамена в Smart LMS открывается онлайн-курс для самостоятельной подготовки. Экзамен проходит дома с двойным прокторингом.</div>
@@ -856,7 +846,7 @@
             <div class="diff-dot filled hard"></div>
             <div class="diff-dot"></div>
           </div>
-          <span class="diff-label">4/5 — сложно</span>
+          <span class="diff-label">4/5</span>
         </div>
         <div class="course-desc">Экзамен оценивает четыре аспекта владения языком: аудирование, говорение, чтение и письмо.</div>
       </div>
@@ -869,7 +859,7 @@
   <div class="container">
     <div class="section-tag">Вопрос — ответ</div>
     <h2>Частые вопросы</h2>
-    <p class="section-sub">То, что не найдёшь на официальном сайте — или найдёшь, но не поймёшь.</p>
+    <p class="section-sub">Ответы по материалам проекта и указанным в них официальным ссылкам.</p>
 
     <div class="qa-list">
       <div class="qa-item">
@@ -878,7 +868,7 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          Основной корпус — бульвар Гагарина, 37 (корпус №2). Здесь проходит 90% занятий МПБЭ. Посмотри виртуальный тур: <a href="https://rutube.ru/video/fcf9a7c117605acc64803fa476540d9f/" target="_blank">rutube.ru/video/fcf9a7c117605acc64803fa476540d9f</a> — реально помогает не потеряться в первый день.
+          Корпус, в котором проходит 90% учёбы, находится по адресу: бульвар Гагарина, 37 (корпус №2). Виртуальный тур: <a href="https://rutube.ru/video/fcf9a7c117605acc64803fa476540d9f/" target="_blank">rutube.ru/video/fcf9a7c117605acc64803fa476540d9f</a>.
         </div>
       </div>
 
@@ -888,8 +878,8 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          Нет, совсем не как в школе. У каждого предмета своя формула, где каждая активность весит свой процент. Например, по Этике бизнеса: 28% — работа на семинарах + 24% — ТЗ1 + 28% — ТЗ2 + 20% — экзамен.<br><br>
-          Оценки по 10-балльной системе. Важно: семинарская оценка считается как среднее по всем семинарам. Если получил 6, 7, 7, 8 — итог 7. Формулу преподаватель объявляет в начале курса.
+          Нет, совсем не как в школе. У каждого предмета своя формула: в итоговую оценку могут входить работа на семинарах, творческие задания и экзамен, причём каждая часть учитывается со своим весом.<br><br>
+          Оценки выставляются по 10-балльной системе. Точную формулу, состав заданий и правила округления преподаватель сообщает в начале курса, поэтому их нужно проверять отдельно для каждого предмета.
         </div>
       </div>
 
@@ -899,10 +889,10 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          Мобильность — это учёба в другом кампусе ВШЭ (Москва, Санкт-Петербург, Нижний Новгород) от 1 модуля до года. Официальный источник: <a href="https://perm.hse.ru/mobilnost/about" target="_blank">perm.hse.ru/mobilnost/about</a><br><br>
+          Мобильность — это учёба в другом кампусе ВШЭ на образовательной программе, которая есть в выбранном кампусе. Продолжительность — от одного модуля до года, с возможным продлением до двух лет. Официальный источник: <a href="https://perm.hse.ru/mobilnost/about" target="_blank">perm.hse.ru/mobilnost/about</a><br><br>
           <ul>
-            <li>Кто может: студенты со 2 курса, без долгов</li>
-            <li>Стоимость: бесплатно (для бюджетников)</li>
+            <li>Кто может: студенты со 2 курса без академических задолженностей</li>
+            <li>Стоимость: мобильность бесплатна; для студентов платных мест стоимость обучения может измениться</li>
             <li>Документы: заявление в учебный офис за 1,5 месяца до отъезда, паспорт, студбилет, справка 086/у</li>
             <li>Важно: нужно вернуться в Пермь за 6 месяцев до защиты диплома</li>
           </ul>
@@ -915,7 +905,7 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          Все вакансии и стажировки публикуются в Telegram-канале проектного офиса ВШЭ Пермь: <a href="https://t.me/hsecareerperm" target="_blank">@hsecareerperm</a>. Подпишись сразу — обновления приходят регулярно.
+          Информация о стажировках и вакантных местах размещается в Telegram-канале проектного офиса: <a href="https://t.me/hsecareerperm" target="_blank">@hsecareerperm</a>.
         </div>
       </div>
 
@@ -925,7 +915,7 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          Да, в ВШЭ Пермь есть штатный психолог. Принимает в 1 корпусе (ул. Студенческая, 38), кабинет 412. Проводит как индивидуальные, так и групповые встречи. Бесплатно.<br><br>
+          В НИУ ВШЭ — Пермь есть действующий психолог. Групповые и индивидуальные встречи проходят в 1 корпусе (ул. Студенческая, 38), кабинет 412.<br><br>
           Подробнее: <a href="https://perm.hse.ru/upr/stal/psychologist" target="_blank">perm.hse.ru/upr/stal/psychologist</a>
         </div>
       </div>
@@ -936,8 +926,8 @@
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
-          ДОД бакалавриата ВШЭ Пермь проходит в гибридном формате — очно в корпусе №2 (бульвар Гагарина, 37) и онлайн для зарегистрированных участников.<br><br>
-          На мероприятии рассказывают о правилах приёма, всех программах, можно лично пообщаться с академическими руководителями. В 2026 году открыт набор на 8 программ, включая МПБЭ.
+          День открытых дверей бакалавриата НИУ ВШЭ — Пермь прошёл 19 апреля 2026 года в гибридном формате: очно в корпусе №2 (бульвар Гагарина, 37) и онлайн.<br><br>
+          В материалах мероприятия указаны 8 программ бакалавриата, включая МПБЭ.
         </div>
       </div>
 
@@ -948,25 +938,25 @@
         </button>
         <div class="qa-answer">
           <ul>
-            <li><strong>Monkey Grinder</strong> — самая популярная сеть у студентов ВШЭ. Лучшие точки: Эспланада, Аймол (фудкорт), у Гипер Ленты (бул. Гагарина 67)</li>
-            <li><strong>4u</strong> — уютное место с чизкейками и эклерами, бул. Гагарина 67</li>
-            <li><strong>Дринкит</strong> — хороший кофе и выпечка, ул. Белинского 6Б</li>
-            <li><strong>Stars Coffee</strong> — стильно и уютно, ул. Петропавловская 57</li>
+            <li><strong>Monkey Grinder</strong> — в источнике рекомендованы точки на Эспланаде, в Аймол (фудкорт) и у «Гипер Ленты» (бул. Гагарина, 67)</li>
+            <li><strong>4u</strong> — кофе, чай и десерты; бул. Гагарина, 67</li>
+            <li><strong>Дринкит</strong> — напитки и выпечка; ул. Белинского, 6Б</li>
+            <li><strong>Stars Coffee</strong> — кофе и десерты; ул. Петропавловская, 57</li>
           </ul>
         </div>
       </div>
 
       <div class="qa-item">
         <button class="qa-question">
-          Где недорого поесть рядом с Вышкой?
+          Где поесть в Перми?
           <span class="qa-icon">+</span>
         </button>
         <div class="qa-answer">
           <ul>
-            <li><strong>Блинная Сковородка</strong> — огромные блины, наедаешься с одного. ул. Крупской 41</li>
-            <li><strong>Ранние Пташки</strong> — завтраки весь день. ул. Ленина 60</li>
-            <li><strong>Поке рамен</strong> — азиатское бистро, Комсомольский просп. 7</li>
-            <li><strong>Торопомодоро</strong> — итальянская кухня в историческом здании. ул. Ленина 44</li>
+            <li><strong>Блинная Сковородка</strong> — блины; ул. Крупской, 41</li>
+            <li><strong>Ранние Пташки</strong> — завтраки в течение дня; ул. Ленина, 60</li>
+            <li><strong>Поке рамен</strong> — азиатское бистро; Комсомольский просп., 7</li>
+            <li><strong>Торопомодоро</strong> — блюда итальянской кухни; ул. Ленина, 44</li>
           </ul>
         </div>
       </div>
@@ -985,9 +975,9 @@
       <div class="dorm-card">
         <h3><span class="dorm-icon">📍</span>Адреса</h3>
         <ul>
-          <li>Общежитие 1: ул. Уинская, 34 · <a href="tel:+73422543702">+7 342 254-37-02</a></li>
-          <li>Общежитие 2: бул. Гагарина, 37А · <a href="tel:+73422545621">+7 342 254-56-21</a></li>
-          <li>Общежитие 3: бул. Гагарина, 41 · <a href="tel:+73422009548">+7 342 200-95-48</a></li>
+          <li>Общежитие 1: ул. Уинская, 34 · <a href="tel:+73422543702">+7 (342) 254-37-02</a></li>
+          <li>Общежитие 2: бул. Гагарина, 37А · <a href="tel:+73422545621">+7 (342) 254-56-21</a></li>
+          <li>Общежитие 3: бул. Гагарина, 41 · <a href="tel:+73422009548">+7 (342) 200-95-48</a></li>
           <li>Первокурсников заселяют в общежитие 3 (бул. Гагарина 41)</li>
           <li>Карта: <a href="https://perm.hse.ru/dormitory/" target="_blank">perm.hse.ru/dormitory</a></li>
         </ul>
@@ -998,9 +988,9 @@
         <ul>
           <li>Подать электронную заявку на сайте общежития <strong>до 31 августа</strong></li>
           <li>Приехать 27, 30 или 31 августа · ул. Уинская 34, ауд. 114 (10:00–18:00)</li>
-          <li>Взять с собой: паспорт, справка 086-У (оригинал+копия), сертификат прививок</li>
-          <li>До 18 лет — нужен родитель или нотариальное согласие</li>
-          <li>Оплатить проживание через Сбербанк или банкомат</li>
+          <li>Взять с собой: паспорт, справка 086-У (оригинал и копия), копия сертификата прививок</li>
+          <li>До 18 лет — нужен родитель с паспортом или копия его паспорта и письменное согласие в двух экземплярах</li>
+          <li>Оплатить проживание и постельное бельё через Сбербанк Онлайн или банкомат</li>
         </ul>
       </div>
 
@@ -1012,7 +1002,7 @@
           <li>Блочный тип: 4 комнаты + душ + туалет + кухня</li>
           <li>На кухне: плита, холодильник, микроволновка, чайник, вытяжка</li>
           <li>На этаже: стиральная машина, сушилки, гладильные доски</li>
-          <li>В доме: спортзал, камера хранения, коворкинг</li>
+          <li>В доме: спортзал, камера хранения, компьютерный класс</li>
         </ul>
       </div>
 
@@ -1024,16 +1014,17 @@
           <li>Гигиена: резиновые тапки для душа, мочалка, непромокаемая сумочка</li>
           <li>Постельное: можно взять своё или взять казённое за 180 руб/смена</li>
           <li>Купить большую часть: OZON, Wildberries, Лента (бул. Гагарина 65)</li>
-          <li>Видео-обзор общаги: <a href="https://www.youtube.com/watch?v=QS9j9wtfxJY" target="_blank">youtube.com/watch?v=QS9j9wtfxJY</a></li>
+          <li>Видео-обзор общежития: <a href="https://www.youtube.com/watch?v=QS9j9wtfxJY&amp;t=273s" target="_blank">youtube.com/watch?v=QS9j9wtfxJY&amp;t=273s</a></li>
         </ul>
       </div>
 
       <div class="dorm-card dorm-contact">
         <h3><span class="dorm-icon">📞</span>Контакты</h3>
         <ul>
-          <li><strong>Золин Александр Васильевич</strong> — заведующий<br><a href="tel:+73422543703">+7 342 254-37-03</a> · <a href="mailto:AVZolin@hse.ru">AVZolin@hse.ru</a></li>
-          <li><strong>Левина Татьяна Николаевна</strong> — заместитель заведующего<br><a href="mailto:tlevina2@hse.ru">tlevina2@hse.ru</a></li>
-          <li><strong>Лялина Екатерина Валерьевна</strong> — комендант (Гагарина 41)<br><a href="mailto:elyalina@hse.ru">elyalina@hse.ru</a></li>
+          <li><strong>Золин Александр Васильевич</strong> — заведующий общежитием<br><a href="tel:+73422543703">+7 (342) 254-37-03</a> *6203 · <a href="mailto:AVZolin@hse.ru">AVZolin@hse.ru</a></li>
+          <li><strong>Левина Татьяна Николаевна</strong> — заместитель заведующего общежитием<br><a href="tel:+73422543701">+7 (342) 254-37-01</a> *6171 · <a href="mailto:tlevina2@hse.ru">tlevina2@hse.ru</a></li>
+          <li><strong>Лялина Екатерина Валерьевна</strong> — комендант общежития (бул. Гагарина, 41)<br><a href="tel:+73422009549">+7 (342) 200-95-49</a> *6149 · <a href="mailto:elyalina@hse.ru">elyalina@hse.ru</a></li>
+          <li><strong>Баранова Людмила Алексеевна</strong> — комендант общежития (ул. Уинская, 34)<br><a href="tel:+73422543704">+7 (342) 254-37-04</a> *6204 · <a href="mailto:lbaranova@hse.ru">lbaranova@hse.ru</a></li>
         </ul>
       </div>
     </div>
@@ -1045,13 +1036,13 @@
   <div class="container">
     <div class="section-tag">Внеучёбка</div>
     <h2>Клубы и организации</h2>
-    <p class="section-sub">Студенческая жизнь в ВШЭ — это не только учёба. Ярмарка организаций проходит в начале сентября.</p>
+    <p class="section-sub">Организации и мероприятия, перечисленные в материалах проекта.</p>
 
     <div class="clubs-grid">
       <div class="club-card">
         <div class="club-emoji">🎭</div>
         <div class="club-name">СтудАктив НИУ ВШЭ Пермь</div>
-        <div class="club-desc">Организуют самые крупные события кампуса: квесты по Перми, Зимний бал, HSE FACE и другие.</div>
+        <div class="club-desc">Организует мероприятия кампуса, в том числе квест «САВОК», Зимний бал и HSE FACE.</div>
         <div class="club-links">
           <a href="https://vk.com/hse_perm_studactive" target="_blank" class="club-link vk">ВКонтакте</a>
           <a href="https://t.me/hse_perm_studactive" target="_blank" class="club-link tg">Telegram</a>
@@ -1061,7 +1052,7 @@
       <div class="club-card">
         <div class="club-emoji">🤝</div>
         <div class="club-name">ПАПы — кураторы первокурсников</div>
-        <div class="club-desc">Помогают с адаптацией: тимбилдинги, верёвочный курс, первая встреча с группой. Найдут тебя сами после оглашения списков.</div>
+        <div class="club-desc">Кураторы помогают первокурсникам с адаптацией, проводят «Верёвку» и первую встречу с группой.</div>
         <div class="club-links">
           <a href="https://vk.com/dadsknowhow" target="_blank" class="club-link vk">ВКонтакте</a>
         </div>
@@ -1089,7 +1080,7 @@
       <div class="club-card">
         <div class="club-emoji">💚</div>
         <div class="club-name">Волонтёрский центр</div>
-        <div class="club-desc">Помощь фондам («Дедморозим»), приютам для животных, социальные инициативы студентов и преподавателей.</div>
+        <div class="club-desc">Объединяет студентов, выпускников и сотрудников университета: участники встречаются с фондом «Дедморозим» и помогают бездомным животным в приютах.</div>
         <div class="club-links">
           <a href="https://vk.com/vcperm" target="_blank" class="club-link vk">ВКонтакте</a>
           <a href="https://t.me/+XVIP9MlxzvA0MDQy" target="_blank" class="club-link tg">Telegram</a>
@@ -1099,7 +1090,7 @@
       <div class="club-card">
         <div class="club-emoji">🌿</div>
         <div class="club-name">Зелёная Вышка</div>
-        <div class="club-desc">Экологическое сообщество. Делают Вышку «зелёным» университетом вместе с администрацией и студентами.</div>
+        <div class="club-desc">Экологическое подразделение Волонтёрского центра: студенты вместе с администрацией и преподавателями делают кампус «зелёным» университетом.</div>
         <div class="club-links">
           <a href="https://vk.com/hsegreenperm" target="_blank" class="club-link vk">ВКонтакте</a>
         </div>
@@ -1108,7 +1099,7 @@
       <div class="club-card">
         <div class="club-emoji">🎪</div>
         <div class="club-name">Театральная студия АРТэриЯ</div>
-        <div class="club-desc">Постановки, репетиции, атмосфера живого театра — для тех, кто хочет быть на сцене или за кулисами.</div>
+        <div class="club-desc">Творческая лаборатория студентов Вышки, создающая спектакли под руководством режиссёра.</div>
         <div class="club-links">
           <a href="https://vk.com/arteriahse" target="_blank" class="club-link vk">ВКонтакте</a>
         </div>
@@ -1117,7 +1108,7 @@
       <div class="club-card">
         <div class="club-emoji">🎯</div>
         <div class="club-name">СК «Вышка» — страйкбол</div>
-        <div class="club-desc">Сборная команда НИУ ВШЭ Пермь по страйкболу. Если хочешь адреналина вне учёбы — сюда.</div>
+        <div class="club-desc">Сборная команда НИУ ВШЭ — Пермь по страйкболу.</div>
         <div class="club-links">
           <a href="https://vk.com/hseairsoft" target="_blank" class="club-link vk">ВКонтакте</a>
         </div>
@@ -1126,7 +1117,7 @@
       <div class="club-card">
         <div class="club-emoji">🏛️</div>
         <div class="club-name">Центр молодёжной политики</div>
-        <div class="club-desc">Помогают создавать студенческие клубы, организовывать мероприятия и мастер-классы. Точка входа во всю внеучёбку.</div>
+        <div class="club-desc">Помогает создавать студенческие клубы, организовывать мероприятия и мастер-классы.</div>
         <div class="club-links">
           <a href="https://vk.com/studcentre_hseperm" target="_blank" class="club-link vk">ВКонтакте</a>
           <a href="https://t.me/studcentreperm" target="_blank" class="club-link tg">Telegram</a>
@@ -1212,14 +1203,14 @@
   <div class="container">
     <div class="section-tag">Лайфхаки</div>
     <h2>Советы от студентов</h2>
-    <p class="section-sub">Всё, что хотелось бы знать до поступления — но узнаёшь только в процессе.</p>
+    <p class="section-sub">Рекомендации и материалы из раздела «Лайфхаки» проекта.</p>
 
     <div class="lh-tabs">
-      <button class="lh-tab active" onclick="showTab('tm')">Тайм-менеджмент</button>
-      <button class="lh-tab" onclick="showTab('school')">Что повторить до учёбы</button>
-      <button class="lh-tab" onclick="showTab('abbr')">Переводчик аббревиатур</button>
-      <button class="lh-tab" onclick="showTab('quotes')">Советы первокурсников</button>
-      <button class="lh-tab" onclick="showTab('files')">📄 Чек-листы PDF</button>
+      <button class="lh-tab active" onclick="showTab('tm', this)">Тайм-менеджмент</button>
+      <button class="lh-tab" onclick="showTab('school', this)">Что повторить до учёбы</button>
+      <button class="lh-tab" onclick="showTab('abbr', this)">Переводчик аббревиатур</button>
+      <button class="lh-tab" onclick="showTab('quotes', this)">Советы первокурсников</button>
+      <button class="lh-tab" onclick="showTab('files', this)">📄 Чек-листы PDF</button>
     </div>
 
     <div class="lh-panel active" id="tab-tm">
@@ -1227,20 +1218,19 @@
         <div class="lh-card">
           <h3>4 основы тайм-менеджмента</h3>
           <ul>
-            <li>В первую очередь — самые важные и срочные дела. Не откладывай ключевое.</li>
-            <li>Отслеживай, на что тратишь время. Ищи, где можно сэкономить.</li>
-            <li>Начинай с малого, чтобы победить прокрастинацию. Главное — просто начать.</li>
-            <li>Перерывы каждые 50–90 минут — не лень, а необходимость.</li>
+            <li>В первую очередь — самые важные и срочные дела.</li>
+            <li>Отслеживайте, на что вы тратите своё время, и ищите возможность его сэкономить.</li>
+            <li>Начинайте с малого, чтобы победить прокрастинацию. Главное — просто начать.</li>
+            <li>Делайте перерывы не реже, чем каждые 50–90 минут.</li>
           </ul>
         </div>
         <div class="lh-card">
-          <h3>Специфика ВШЭ</h3>
+          <h3>Планер на день</h3>
           <ul>
-            <li>Smart LMS — система для сдачи заданий. Открой в первую неделю и разберись.</li>
-            <li>Тесты решай в первые дни после открытия, не в последний момент.</li>
-            <li>Отвечай на семинарах с первого занятия — это реально влияет на итоговую оценку.</li>
-            <li>Дедлайны жёсткие. Прозевал — сложно наверстать.</li>
-            <li>Групповые проекты — почти в каждом предмете. Выбирай партнёров умно.</li>
+            <li>Авторский планер включает расписание на день по часам.</li>
+            <li>В нём есть отдельное место для трёх главных целей дня.</li>
+            <li>В планере предусмотрено место для заметок.</li>
+            <li>Его можно распечатать или использовать в электронном формате.</li>
           </ul>
         </div>
       </div>
@@ -1251,9 +1241,9 @@
         <div class="lh-card">
           <h3>Цифровая грамотность</h3>
           <ul>
-            <li>Базовые формулы Excel: СУММ, МИН, МАКС, СРЗНАЧ, ВПР</li>
-            <li>Форматирование текста в Word: шрифт, нумерация, интервалы, гиперссылки</li>
-            <li>Виды лицензий на авторские права (знай различия CC-BY, CC-NC и т.д.)</li>
+            <li>Базовые формулы Excel: МИН, МАКС, СРЗНАЧ, СУММ и другие</li>
+            <li>Редактирование текста в Word</li>
+            <li>Лицензии и условия их использования</li>
           </ul>
         </div>
         <div class="lh-card">
@@ -1269,18 +1259,18 @@
           <h3>Экономика</h3>
           <ul>
             <li>Рынок: виды, функции, субъекты и объекты</li>
-            <li>Спрос и предложение: законы и графики</li>
+            <li>Спрос и предложение</li>
             <li>Виды конкуренции и рыночных структур</li>
-            <li>Что такое ВВП, инфляция, безработица — базовые понятия</li>
+            <li>ВВП, инфляция, безработица и экономический рост</li>
           </ul>
         </div>
         <div class="lh-card">
           <h3>Английский язык</h3>
           <ul>
-            <li>МПБЭ — международная программа, много предметов на английском</li>
-            <li>Подтяни академический словарь: essay writing, business vocabulary</li>
-            <li>Практикуй разговорный: смотри подкасты, YouTube на английском</li>
-            <li>Telegram карьерного офиса: <a href="https://t.me/hsecareerperm" target="_blank">@hsecareerperm</a> — там часто вакансии с требованием английского</li>
+            <li>Для базового понимания языка в чек-листе указана цель: около 1000 слов</li>
+            <li>В качестве приложений указаны Skyeng, Lingualeo и EWA</li>
+            <li>Предлагается учить слова в контексте, через ассоциации и с помощью стикеров или трекера</li>
+            <li>Часть дисциплин программы преподаётся на английском языке</li>
           </ul>
         </div>
       </div>
@@ -1297,18 +1287,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="abbr-code">МПБЭ</td><td>Международная программа по бизнесу и экономике</td><td>Твоя программа</td></tr>
-          <tr><td class="abbr-code">Smart LMS</td><td>Learning Management System</td><td>Система сдачи заданий и посещаемости</td></tr>
-          <tr><td class="abbr-code">ПАП</td><td>Помощник Адаптации Первокурсников</td><td>Куратор-старшекурсник</td></tr>
-          <tr><td class="abbr-code">ЭПП</td><td>Элективный практический проект</td><td>Практика в рамках учёбы</td></tr>
-          <tr><td class="abbr-code">НКО</td><td>Некоммерческая организация</td><td>С ними работаете в Соцпроектировании</td></tr>
-          <tr><td class="abbr-code">БВИ</td><td>Без вступительных испытаний</td><td>Поступление без ЕГЭ для победителей олимпиад</td></tr>
-          <tr><td class="abbr-code">ОРГ</td><td>Основы российской государственности</td><td>Обязательный предмет 1 модуля</td></tr>
-          <tr><td class="abbr-code">БЖД</td><td>Безопасность жизнедеятельности</td><td>Первая неделя учёбы</td></tr>
-          <tr><td class="abbr-code">ВКР</td><td>Выпускная квалификационная работа</td><td>Дипломная работа</td></tr>
-          <tr><td class="abbr-code">ДОД</td><td>День открытых дверей</td><td>Мероприятие для абитуриентов</td></tr>
-          <tr><td class="abbr-code">МБА</td><td>Master of Business Administration</td><td>Магистратура по менеджменту</td></tr>
-          <tr><td class="abbr-code">КМД</td><td>Кросс-модульная дисциплина</td><td>Предмет, который длится несколько модулей</td></tr>
+          <tr><td class="abbr-code">Пекус</td><td>Первокурсник</td><td>Студент первого курса</td></tr>
+          <tr><td class="abbr-code">ОП</td><td>Образовательная программа</td><td>Программа обучения</td></tr>
+          <tr><td class="abbr-code">Межбак / межпрог</td><td>Международная программа / бакалавриат по бизнесу и экономике</td><td>Названия направления в студенческой речи</td></tr>
+          <tr><td class="abbr-code">РИС</td><td>Разработка информационных систем для бизнеса</td><td>Включает БИ и ПИ</td></tr>
+          <tr><td class="abbr-code">МКИ</td><td>Менеджмент в креативных индустриях</td><td>Образовательная программа</td></tr>
+          <tr><td class="abbr-code">КТ</td><td>Контрольная точка</td><td>Контрольная точка</td></tr>
+          <tr><td class="abbr-code">МКР / МК</td><td>Микроконтроль</td><td>Микроконтроль</td></tr>
+          <tr><td class="abbr-code">Блокирующий экзамен</td><td>Экзамен с обязательным минимумом 4/10</td><td>При несдаче следует пересдача</td></tr>
+          <tr><td class="abbr-code">СОП</td><td>Студенческая оценка преподавания</td><td>Проводится каждый модуль</td></tr>
+          <tr><td class="abbr-code">Накоп</td><td>Накопленная оценка</td><td>Накапливается до экзамена по формуле предмета</td></tr>
+          <tr><td class="abbr-code">Внеучебка</td><td>Внеучебная деятельность</td><td>Деятельность вне учёбы</td></tr>
+          <tr><td class="abbr-code">ПАПы</td><td>Кураторы</td><td>Помогают первокурсникам с адаптацией</td></tr>
+          <tr><td class="abbr-code">ИУП</td><td>Индивидуальный учебный план</td><td>Может возникнуть при повторном изучении дисциплин или после мобильности</td></tr>
+          <tr><td class="abbr-code">LMS</td><td>Learning Management System</td><td>Онлайн-система поддержки обучения</td></tr>
+          <tr><td class="abbr-code">Линейка</td><td>Линейная алгебра</td><td>Учебная дисциплина</td></tr>
+          <tr><td class="abbr-code">ЦГ</td><td>Цифровая грамотность</td><td>Учебная дисциплина</td></tr>
+          <tr><td class="abbr-code">ПГ</td><td>Правовая грамотность</td><td>Учебная дисциплина</td></tr>
         </tbody>
       </table>
       </div>
@@ -1317,28 +1312,28 @@
     <div class="lh-panel" id="tab-quotes">
       <div class="quotes-grid">
         <div class="quote-card">
-          <div class="quote-text">Не бойся использовать все новые возможности</div>
-          <div class="quote-author">Студент МПБЭ</div>
+          <div class="quote-text">Не бояться использовать все новые возможности</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
         <div class="quote-card">
-          <div class="quote-text">Не откладывай задания на потом. Делу время, а потехе час.</div>
-          <div class="quote-author">Студент МПБЭ</div>
+          <div class="quote-text">Не откладывай задания на потом. Делу время а потехе час.</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
         <div class="quote-card">
-          <div class="quote-text">Займись тайм-менеджментом с первой недели — потом будет поздно.</div>
-          <div class="quote-author">Студент МПБЭ</div>
+          <div class="quote-text">Родной, пожалуйста, займись тайм-менеджментом</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
         <div class="quote-card">
-          <div class="quote-text">Не стесняйся — все твои одногруппники тут тоже впервые.</div>
-          <div class="quote-author">Первокурсник</div>
+          <div class="quote-text">Не стесняйся, все твои одногруппники тут тоже впервые.</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
         <div class="quote-card">
-          <div class="quote-text">Это будет тяжело, но ты почувствуешь, что учишься чему-то настоящему.</div>
-          <div class="quote-author">Студент 1 курса</div>
+          <div class="quote-text">Это будет тяжело, но это будет впервые в твоей жизни, когда ты почувствуешь, что учишься чему-то полезному и тому, что тебе нравится. Поэтому готовься к трудностям, не сдавайся и знай, что это будет того стоить.</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
         <div class="quote-card">
           <div class="quote-text">Забудь о школьных привычках и изучи то, что тебе реально нужно.</div>
-          <div class="quote-author">Студент МПБЭ</div>
+          <div class="quote-author">Из опроса студентов</div>
         </div>
       </div>
     </div>
@@ -1348,9 +1343,9 @@
         <div class="lh-card" style="border: 2px solid var(--hse);">
           <h3>📋 Чек-лист поступления 2026</h3>
           <ul>
-            <li>Полный список документов и дедлайнов</li>
-            <li>Пошаговый план от подачи до зачисления</li>
-            <li>Что проверить на каждом этапе</li>
+            <li>Подача документов начинается 20 июня 2026 года</li>
+            <li>Этапы подачи документов и зачисления</li>
+            <li>Даты, указанные в чек-листе поступления</li>
           </ul>
           <a href="лайфхаки_CHECK-LIST поступление 2026.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--hse);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;">
             📄 Открыть PDF
@@ -1360,9 +1355,9 @@
         <div class="lh-card" style="border: 2px solid var(--green);">
           <h3>⏰ Лайфхаки по тайм-менеджменту</h3>
           <ul>
-            <li>Как планировать учёбу в ВШЭ</li>
-            <li>Инструменты и приёмы от студентов</li>
-            <li>Как не сгореть в первом семестре</li>
+            <li>Планер с расписанием на день по часам</li>
+            <li>Три главные цели дня</li>
+            <li>Место для заметок</li>
           </ul>
           <a href="лайфхаки_тайм менеджмент .pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--green);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;">
             📄 Открыть PDF
@@ -1372,9 +1367,9 @@
         <div class="lh-card" style="border: 2px solid var(--accent);">
           <h3>🇬🇧 Чек-лист по английскому</h3>
           <ul>
-            <li>Что подтянуть до начала учёбы</li>
-            <li>Ресурсы для подготовки к внутреннему экзамену</li>
-            <li>Академический английский для МПБЭ</li>
+            <li>Ориентир по базовому словарному запасу</li>
+            <li>Приложения и способы изучения слов</li>
+            <li>Трекер для самостоятельной практики</li>
           </ul>
           <a href="англ чек_лайфхаки.pdf.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--accent);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;">
             📄 Открыть PDF
@@ -1390,7 +1385,7 @@
   <div class="container">
     <div class="tg-cta-block">
       <h2>Остались вопросы?</h2>
-      <p>Напиши студенту напрямую. Отвечаем в течение 24 часов — без официоза и шаблонных ответов.</p>
+      <p>Telegram-канала проекта пока нет, поэтому ссылка для связи недоступна.</p>
       <span class="tg-btn" aria-disabled="true">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.93c-.13.6-.47.74-.95.46l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.85-4.38c.21-.19-.05-.29-.32-.1l-6 3.78-2.58-.81c-.56-.18-.57-.56.12-.83l10.1-3.89c.46-.18.87.11.69.97z" fill="currentColor"/></svg>
         Написать в Telegram
@@ -1404,36 +1399,11 @@
   <div class="container">
     <div class="section-tag">Обратная связь</div>
     <h2>Задай вопрос</h2>
-    <p class="section-sub">Не нашёл ответ на сайте? Задай вопрос — студенты ответят лично.</p>
+    <p class="section-sub">Telegram-канала проекта пока нет, поэтому отправить вопрос сейчас нельзя.</p>
 
     <div class="form-wrap">
-      <form action="https://formspree.io/f/xjglalgd" method="POST">
-        <div class="form-group">
-          <label for="name">Имя</label>
-          <input type="text" id="name" name="name" placeholder="Как тебя зовут?" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email или Telegram</label>
-          <input type="text" id="email" name="_replyto" placeholder="Куда ответить?" required>
-        </div>
-        <div class="form-group">
-          <label for="topic">Тема вопроса</label>
-          <select id="topic" name="topic">
-            <option value="">Выбери тему</option>
-            <option>Поступление и ЕГЭ</option>
-            <option>Учёба и предметы</option>
-            <option>Общежитие</option>
-            <option>Студенческая жизнь</option>
-            <option>Другое</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Вопрос</label>
-          <textarea id="message" name="message" placeholder="Напиши свой вопрос..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Отправить вопрос →</button>
-        <p class="form-note">Ответим в течение 24 часов. Проект «Коннект ВШЭ Пермь» — студенты для абитуриентов.</p>
-      </form>
+      <p style="font-size:15px;color:var(--text-muted);margin-bottom:20px;">Отправка вопросов будет доступна после появления канала.</p>
+      <span class="btn-submit" aria-disabled="true" style="display:block;text-align:center;">Связь пока недоступна</span>
     </div>
   </div>
 </section>
@@ -1442,9 +1412,9 @@
 <footer>
   <div class="footer-inner">
     <a href="#" class="footer-logo">Коннект ВШЭ Пермь</a>
-    <p>Студенческий проект МПБЭ · ЭПП №12186 · 2026</p>
+    <p>Студенческий проект МПБЭ · 2026</p>
     <div class="footer-links">
-      <a href="https://perm.hse.ru" target="_blank">Официальный сайт ВШЭ Пермь</a>
+      <a href="https://perm.hse.ru/ba/interbac/" target="_blank">Официальная страница МПБЭ</a>
       <a href="#contact">Написать нам</a>
     </div>
   </div>
@@ -1465,11 +1435,11 @@
   });
 
   // Lifehacks tabs
-  function showTab(id) {
+  function showTab(id, tab) {
     document.querySelectorAll('.lh-panel').forEach(function(p) { p.classList.remove('active'); });
     document.querySelectorAll('.lh-tab').forEach(function(t) { t.classList.remove('active'); });
     document.getElementById('tab-' + id).classList.add('active');
-    event.target.classList.add('active');
+    tab.classList.add('active');
   }
 
   // Smooth close mobile menu on link click
