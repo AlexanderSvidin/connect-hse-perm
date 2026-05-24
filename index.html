@@ -174,6 +174,7 @@
     display: flex; gap: 16px; align-items: flex-start;
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 20px;
+    min-width: 0;
   }
   .step-num {
     flex-shrink: 0;
@@ -182,6 +183,7 @@
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700;
   }
+  .step-content { min-width: 0; }
   .step-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
   .step-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
   .step-content a { color: var(--hse); text-decoration: none; }
@@ -203,6 +205,7 @@
     border-radius: var(--radius); padding: 18px;
     border-left: 4px solid transparent;
     transition: transform 0.15s;
+    min-width: 0;
   }
   .course-card:hover { transform: translateY(-2px); }
   .course-card.easy { border-left-color: #22C55E; }
@@ -246,6 +249,7 @@
     display: none; padding: 0 20px 18px;
     font-size: 14px; color: var(--text-muted); line-height: 1.7;
     border-top: 1px solid var(--border);
+    overflow-wrap: anywhere;
   }
   .qa-item.open .qa-answer { display: block; padding-top: 16px; }
   .qa-answer a { color: var(--hse); text-decoration: none; }
@@ -261,13 +265,18 @@
   .dorm-card {
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 24px;
+    min-width: 0;
   }
   .dorm-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .dorm-icon { font-size: 20px; }
   .dorm-card ul { list-style: none; }
-  .dorm-card li { font-size: 14px; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+  .dorm-card li {
+    font-size: 14px; color: var(--text-muted); padding: 6px 0 6px 16px;
+    border-bottom: 1px solid var(--border); position: relative;
+    overflow-wrap: anywhere;
+  }
   .dorm-card li:last-child { border-bottom: none; }
-  .dorm-card li::before { content: '—'; color: var(--hse); flex-shrink: 0; }
+  .dorm-card li::before { content: '—'; color: var(--hse); position: absolute; left: 0; top: 6px; }
   .dorm-contact { font-size: 13px; }
   .dorm-contact a { color: var(--hse); text-decoration: none; }
 
@@ -280,12 +289,13 @@
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 18px;
     transition: border-color 0.15s, transform 0.15s;
+    min-width: 0;
   }
   .club-card:hover { border-color: var(--hse); transform: translateY(-2px); }
   .club-emoji { font-size: 24px; margin-bottom: 10px; }
   .club-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
   .club-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
-  .club-links { display: flex; gap: 8px; }
+  .club-links { display: flex; gap: 8px; flex-wrap: wrap; min-width: 0; }
   .club-link {
     font-size: 12px; font-weight: 600;
     padding: 4px 10px; border-radius: 6px;
@@ -318,18 +328,20 @@
   .lh-card {
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 20px;
+    min-width: 0;
   }
   .lh-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--hse); }
   .lh-card ul { list-style: none; }
   .lh-card li {
     font-size: 14px; color: var(--text-muted);
-    padding: 7px 0; border-bottom: 1px solid var(--border);
-    display: flex; gap: 8px; line-height: 1.5;
+    padding: 7px 0 7px 18px; border-bottom: 1px solid var(--border);
+    position: relative; line-height: 1.5; overflow-wrap: anywhere;
   }
   .lh-card li:last-child { border-bottom: none; }
-  .lh-card li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .lh-card li::before { content: '✓'; color: var(--green); font-weight: 700; position: absolute; left: 0; top: 7px; }
 
   /* ABBR TABLE */
+  .abbr-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .abbr-table { width: 100%; border-collapse: collapse; font-size: 14px; }
   .abbr-table th { text-align: left; font-weight: 600; padding: 10px 12px; background: var(--bg); border-bottom: 2px solid var(--border); }
   .abbr-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -346,6 +358,7 @@
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 20px;
     border-left: 4px solid var(--accent);
+    min-width: 0;
   }
   .quote-text { font-size: 15px; line-height: 1.6; font-style: italic; color: var(--text); margin-bottom: 12px; }
   .quote-text::before { content: '«'; }
@@ -411,7 +424,7 @@
     font-size: 13px; font-weight: 700;
     color: white; text-decoration: none;
   }
-  .footer-links { display: flex; gap: 20px; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; min-width: 0; }
   .footer-links a { color: #94A3B8; text-decoration: none; }
   .footer-links a:hover { color: white; }
 
@@ -1235,6 +1248,7 @@
     </div>
 
     <div class="lh-panel" id="tab-abbr">
+      <div class="abbr-table-wrap">
       <table class="abbr-table">
         <thead>
           <tr>
@@ -1258,6 +1272,7 @@
           <tr><td class="abbr-code">КМД</td><td>Кросс-модульная дисциплина</td><td>Предмет, который длится несколько модулей</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <div class="lh-panel" id="tab-quotes">
