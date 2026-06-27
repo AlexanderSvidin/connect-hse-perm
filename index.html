@@ -135,7 +135,6 @@
     transition: background 0.15s;
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.2); }
-  .btn-secondary[aria-disabled="true"] { cursor: default; pointer-events: none; opacity: 0.75; }
   .hero-stats {
     display: flex; gap: 40px; flex-wrap: wrap;
     border-top: 1px solid rgba(255,255,255,0.15);
@@ -425,7 +424,7 @@
   .footer-logo {
     font-family: 'Unbounded', sans-serif;
     font-size: 13px; font-weight: 700;
-    color: white; text-decoration: none;
+    color: #94A3B8; text-decoration: none;
   }
   .footer-links { display: flex; gap: 20px; flex-wrap: wrap; min-width: 0; }
   .footer-links a { color: #94A3B8; text-decoration: none; }
@@ -456,7 +455,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Коннект <span>ВШЭ</span> Пермь</a>
+    <a href="#" class="nav-logo">Коннект <span>НИУ ВШЭ</span> - Пермь</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#checklist">Поступление</a></li>
       <li><a href="#courses">Курсы</a></li>
@@ -464,7 +463,6 @@
       <li><a href="#dorm">Общежитие</a></li>
       <li><a href="#clubs">Клубы</a></li>
       <li><a href="#lifehacks">Лайфхаки</a></li>
-      <li><a href="#contact" class="nav-cta">Задать вопрос</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -476,24 +474,20 @@
 <section id="hero">
   <div class="container">
     <div class="hero-tag">Проект студентов МПБЭ · НИУ ВШЭ Пермь</div>
-    <h1>Всё о ВШЭ Пермь <em>от тех,<br>кто там учится</em></h1>
+    <h1>Всё о Вышке <em>от тех,<br>кто там учится</em></h1>
     <p>Гид по материалам проекта: чек-лист поступления, карта курсов, общежитие и студенческая жизнь в Перми.</p>
     <div class="hero-btns">
       <a href="#checklist" class="btn-primary">↓ Начать поступление</a>
-      <span class="btn-secondary" aria-disabled="true">✉ Написать студенту</span>
+      <a href="https://vk.com/shermses" target="_blank" class="btn-secondary">✉ Написать студенту</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">8</div>
-        <div class="hero-stat-label">программ бакалавриата</div>
-      </div>
       <div>
         <div class="hero-stat-num">МПБЭ</div>
         <div class="hero-stat-label">международная программа</div>
       </div>
       <div>
         <div class="hero-stat-num">≤24ч</div>
-        <div class="hero-stat-label">цель времени ответа после запуска</div>
+        <div class="hero-stat-label">Время ответа</div>
       </div>
     </div>
   </div>
@@ -801,17 +795,18 @@
         <div class="course-desc">Курс ведётся на английском языке: лекции онлайн, семинары очно. Посвящён этике в управлении бизнесом и социальной ответственности.</div>
       </div>
 
-      <div class="course-card easy">
+      <div class="course-card hard">
         <div class="course-module">4 модуль</div>
         <div class="course-name">Организационное поведение</div>
         <div class="course-difficulty">
           <div class="diff-dots">
-            <div class="diff-dot filled easy"></div>
-            <div class="diff-dot filled easy"></div>
-            <div class="diff-dot"></div><div class="diff-dot"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
+            <div class="diff-dot filled hard"></div>
             <div class="diff-dot"></div>
           </div>
-          <span class="diff-label">2/5</span>
+          <span class="diff-label">4/5</span>
         </div>
         <div class="course-desc">Курс о поведении людей в коллективе: как устроена организация, как работают группы, лидерство и руководство персоналом.</div>
       </div>
@@ -1385,25 +1380,14 @@
   <div class="container">
     <div class="tg-cta-block">
       <h2>Остались вопросы?</h2>
-      <p>Telegram-канала проекта пока нет, поэтому ссылка для связи недоступна.</p>
-      <span class="tg-btn" aria-disabled="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.93c-.13.6-.47.74-.95.46l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.85-4.38c.21-.19-.05-.29-.32-.1l-6 3.78-2.58-.81c-.56-.18-.57-.56.12-.83l10.1-3.89c.46-.18.87.11.69.97z" fill="currentColor"/></svg>
-        Написать в Telegram
-      </span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-tag">Обратная связь</div>
-    <h2>Задай вопрос</h2>
-    <p class="section-sub">Telegram-канала проекта пока нет, поэтому отправить вопрос сейчас нельзя.</p>
-
-    <div class="form-wrap">
-      <p style="font-size:15px;color:var(--text-muted);margin-bottom:20px;">Отправка вопросов будет доступна после появления канала.</p>
-      <span class="btn-submit" aria-disabled="true" style="display:block;text-align:center;">Связь пока недоступна</span>
+      <p>Telegram-канала проекта пока нет. Для вопросов можно написать в VK.</p>
+      <a href="https://vk.com/shermses" target="_blank" class="tg-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <rect width="24" height="24" rx="6" fill="#0077FF"/>
+          <path d="M13.05 17.05c-5.47 0-8.59-3.75-8.72-9.99h2.74c.09 4.58 2.11 6.52 3.72 6.92V7.06h2.58v3.95c1.59-.17 3.26-1.97 3.82-3.95h2.58c-.43 2.44-2.23 4.24-3.5 4.98 1.27.6 3.3 2.17 4.07 5.01h-2.84c-.61-1.9-2.14-3.37-4.13-3.57v3.57h-.31Z" fill="white"/>
+        </svg>
+        Написать в ВК
+      </a>
     </div>
   </div>
 </section>
@@ -1411,11 +1395,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="#" class="footer-logo">Коннект ВШЭ Пермь</a>
+    <a href="#" class="footer-logo">Коннект НИУ ВШЭ - Пермь</a>
     <p>Студенческий проект МПБЭ · 2026</p>
     <div class="footer-links">
       <a href="https://perm.hse.ru/ba/interbac/" target="_blank">Официальная страница МПБЭ</a>
-      <a href="#contact">Написать нам</a>
     </div>
   </div>
 </footer>
